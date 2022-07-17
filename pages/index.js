@@ -5,7 +5,8 @@ import {
   Button,
   Link,
   List,
-  ListItem
+  ListItem,
+  VStack
 } from '@chakra-ui/react'
 import {
   IoLogoInstagram,
@@ -22,16 +23,44 @@ const Page = () => {
   return (
     <Layout>
       <Container>
-        <Box display={{ md: 'flex' }}>
+        <Box>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
               Mijnlieff
             </Heading>
             <p>
-              Limit and constrain your opponent&apos;s moves while trying to
-              make rows of your tiles.
+              This is an unofficial fan-made adaptation of the bagstract game
+              Mijnlieff, designed by{' '}
+              <span style={{ textDecoration: 'underline' }}>Andy Hopwood</span>.
+            </p>
+            <p>
+              In Minjlieff you have to limit and constrain your opponent&apos;s
+              moves while trying to make rows of your tiles.
             </p>
           </Box>
+
+          <VStack paddingY={5} spacing={3}>
+            <NextLink href="/play">
+              <Button
+                rightIcon={<IoPlay />}
+                colorScheme="teal"
+                justify="center"
+                width="50%"
+              >
+                Play
+              </Button>
+            </NextLink>
+            <NextLink href="/how-to-play">
+              <Button
+                rightIcon={<IoHelpCircle />}
+                colorScheme="teal"
+                justify="center"
+                width="50%"
+              >
+                How to play
+              </Button>
+            </NextLink>
+          </VStack>
         </Box>
 
         <Section delay={0.1}>
@@ -54,32 +83,6 @@ const Page = () => {
             sounds. If you can play so your opponent is unable to go you get a
             free play anywhere on the board.
           </Paragraph>
-
-          <Box w="fit-content" align="center" mx="auto" my={4}>
-            <Box>
-              <NextLink href="/play">
-                <Button
-                  rightIcon={<IoPlay />}
-                  colorScheme="teal"
-                  justify="center"
-                  w="100%"
-                >
-                  Play
-                </Button>
-              </NextLink>
-            </Box>
-            <Box mt={4}>
-              <NextLink href="/how-to-play">
-                <Button
-                  rightIcon={<IoHelpCircle />}
-                  colorScheme="teal"
-                  justify="center"
-                >
-                  How to play
-                </Button>
-              </NextLink>
-            </Box>
-          </Box>
         </Section>
 
         <Section delay={0.3}>
