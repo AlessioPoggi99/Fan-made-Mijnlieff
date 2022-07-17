@@ -8,33 +8,41 @@ import {
   ModalFooter,
   Button,
   VStack,
-  Box
+  Text,
+  Flex
 } from '@chakra-ui/react'
 
 const GameOverModal = ({ gameOver, points, resetGame }) => {
   return (
     <>
-      <Modal isCentered isOpen={gameOver}>
+      <Modal size={{ md: 'sm', base: 'xs' }} isCentered isOpen={gameOver}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign="center">Game Over</ModalHeader>
 
           <ModalBody>
-            <VStack>
-              <Box></Box>
-              <Button
-                colorScheme="teal"
-                variant="solid"
-                width="50%"
-                onClick={() => resetGame()}
-              >
-                Play again
-              </Button>
-              <NextLink href="/" passHref>
-                <Button as="a" colorScheme="teal" variant="outline" width="50%">
-                  Back home
+            <VStack spacing={7}>
+              <PointFlex points={points} />
+              <VStack width="60%">
+                <Button
+                  width="100%"
+                  colorScheme="teal"
+                  variant="solid"
+                  onClick={() => resetGame()}
+                >
+                  Play again
                 </Button>
-              </NextLink>
+                <NextLink href="/" passHref>
+                  <Button
+                    as="a"
+                    width="100%"
+                    colorScheme="teal"
+                    variant="outline"
+                  >
+                    Back home
+                  </Button>
+                </NextLink>
+              </VStack>
             </VStack>
           </ModalBody>
 
@@ -45,4 +53,56 @@ const GameOverModal = ({ gameOver, points, resetGame }) => {
   )
 }
 
+const PointFlex = ({ points }) => {
+  // 0 if DRAW  -  1 if BLUE wins  - 2 if PINK wins
+  const winner = points[0] === points[1] ? 0 : points[0] > points[1] ? 1 : 2
+
+  return (
+    <Flex align="center" gap={5}>
+      <Text
+        fontSize={{ md: '2rem', base: '1.5rem' }}
+        bg="blue.200"
+        borderRadius="xl"
+        color="blue.700"
+        paddingX={3}
+        paddingY={2}
+        lineHeight="100%"
+        fontWeight="bold"
+      >
+        {points[0]}
+      </Text>
+      <Text
+        fontSize={{ md: '2rem', base: '1.5rem' }}
+        lineHeight="100%"
+        fontWeight="bold"
+      >
+        {winner === 0 ? (
+          'Draw'
+        ) : winner === 1 ? (
+          <Flex>
+            <Text color="blue.300">Blue&nbsp;</Text>
+            <Text>wins</Text>
+          </Flex>
+        ) : (
+          <Flex>
+            <Text color="pink.300">Pink&nbsp;</Text>
+            <Text>wins</Text>
+          </Flex>
+        )}
+      </Text>
+      <Text
+        fontSize={{ md: '2rem', base: '1.5rem' }}
+        bg="pink.200"
+        borderRadius="xl"
+        color="pink.700"
+        paddingX={3}
+        paddingY={2}
+        lineHeight="100%"
+        fontWeight="bold"
+      >
+        {points[1]}
+      </Text>
+    </Flex>
+  )
+}
 export default GameOverModal

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Container, VStack, Box, Button } from '@chakra-ui/react'
+import { Container, VStack, Box } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Board from '../components/board'
 import Player from '../components/player'
@@ -22,7 +22,6 @@ const Play = () => {
 
   useEffect(() => {
     resetGame()
-    setGameOver(true)
   }, [])
 
   // Function that reset all states to thieir initial value to start a new game
