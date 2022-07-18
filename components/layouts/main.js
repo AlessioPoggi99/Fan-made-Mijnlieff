@@ -7,6 +7,13 @@ const Main = ({ children, router }) => {
     <Box as="main" pb={8}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Fan-made Mijnlieff" />
+        <meta name="author" content="Alessio Poggi" />
+        <meta name="author" content="AlessioPoggi99" />
+        <meta property="og:site_name" content="Mijnlieff" />
+        <meta name="og:title" content="Mijnlieff" />
+        <meta property="og:type" content="website" />
+        <link rel="manifest" href="/manifest.json" />
         <title>Mijnlieff - Homepage</title>
       </Head>
 
