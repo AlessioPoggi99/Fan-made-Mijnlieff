@@ -1,11 +1,18 @@
 import Logo from './logo'
+//import NextLink from 'next/link'
 import {
   Container,
   Box,
   Heading,
   Flex,
+  /*Menu,
+  MenuItem,
+  MenuList,
+  MenuButton,
+  IconButton,*/
   useColorModeValue
 } from '@chakra-ui/react'
+//import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 
 const Navbar = props => {
@@ -35,6 +42,25 @@ const Navbar = props => {
 
         <Box flex={1} align="right">
           <ThemeToggleButton />
+
+          {/*
+          <Box ml={2} display="inline-block">
+            <Menu isLazy id="navbar-menu">
+              <MenuButton
+                as={IconButton}
+                icon={<HamburgerIcon />}
+                variant="outline"
+                aria-label="Options"
+              />
+              <MenuList>
+                <MenuItem py={2}>Restart game</MenuItem>
+                <NextLink href="/" passHref>
+                  <MenuItem py={2}>Back home</MenuItem>
+                </NextLink>
+              </MenuList>
+            </Menu>
+          </Box>
+          */}
         </Box>
       </Container>
     </Box>

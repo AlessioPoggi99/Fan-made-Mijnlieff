@@ -61,7 +61,7 @@ const PointFlex = ({ points }) => {
   return (
     <Flex align="center" gap={5}>
       <Text
-        fontSize={{ md: '2rem', base: '1.5rem' }}
+        fontSize="1.5rem"
         bg="blue.200"
         borderRadius="xl"
         color="blue.700"
@@ -72,11 +72,7 @@ const PointFlex = ({ points }) => {
       >
         {points[0]}
       </Text>
-      <Box
-        fontSize={{ md: '2rem', base: '1.5rem' }}
-        lineHeight="100%"
-        fontWeight="bold"
-      >
+      <Box fontSize="1.5rem" lineHeight="100%" fontWeight="bold">
         {winner === 0 ? (
           'Draw'
         ) : winner === 1 ? (
@@ -92,7 +88,7 @@ const PointFlex = ({ points }) => {
         )}
       </Box>
       <Text
-        fontSize={{ md: '2rem', base: '1.5rem' }}
+        fontSize="1.5rem"
         bg="pink.200"
         borderRadius="xl"
         color="pink.700"

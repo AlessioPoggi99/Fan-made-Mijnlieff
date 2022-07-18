@@ -22,7 +22,7 @@ import Paragraph from '../components/paragraph'
 import GameModeModal from '../components/game-mode-modal'
 
 const Page = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure() // GameModeModal
 
   return (
     <Layout>
