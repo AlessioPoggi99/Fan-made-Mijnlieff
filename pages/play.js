@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 import { Container, VStack, Box } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Board from '../components/board'
@@ -19,6 +20,10 @@ const Play = () => {
   const [playerSelection, setPlayerSelection] = useState()
   const [gameOver, setGameOver] = useState(false)
   const [points, setPoints] = useState([0, 0])
+
+  const router = useRouter()
+  const flip = parseInt(router.query.flip, 10) // 1 true  - 0 false
+  const ai = parseInt(router.query.ai, 10) // 0 false - 1 true (AI player1) - 2 true (AI player2)
 
   useEffect(() => {
     resetGame()
@@ -179,17 +184,37 @@ const Play = () => {
         <VStack spacing={10}>
           <VStack spacing={2}>
             <PlayerHilight
-              isVisible={gameOver ? false : turn % 2 ? true : false}
-              bg="pink.600"
+              isVisible={
+                gameOver
+                  ? false
+                  : flip
+                  ? turn % 2
+                    ? false
+                    : true
+                  : turn % 2
+                  ? true
+                  : false
+              }
+              bg={flip ? 'blue.600' : 'pink.600'}
             />
             <Player
-              player={player2}
+              player={flip ? player1 : player2}
               turn={turn}
               onPlayerTileClick={handlePlayerTileClick}
             />
             <PlayerHilight
-              isVisible={gameOver ? false : turn % 2 ? true : false}
-              bg="pink.600"
+              isVisible={
+                gameOver
+                  ? false
+                  : flip
+                  ? turn % 2
+                    ? false
+                    : true
+                  : turn % 2
+                  ? true
+                  : false
+              }
+              bg={flip ? 'blue.600' : 'pink.600'}
             />
           </VStack>
 
@@ -201,17 +226,37 @@ const Play = () => {
 
           <VStack spacing={2}>
             <PlayerHilight
-              isVisible={gameOver ? false : turn % 2 ? false : true}
-              bg="blue.600"
+              isVisible={
+                gameOver
+                  ? false
+                  : flip
+                  ? turn % 2
+                    ? true
+                    : false
+                  : turn % 2
+                  ? false
+                  : true
+              }
+              bg={flip ? 'pink.600' : 'blue.600'}
             />
             <Player
-              player={player1}
+              player={flip ? player2 : player1}
               turn={turn}
               onPlayerTileClick={handlePlayerTileClick}
             />
             <PlayerHilight
-              isVisible={gameOver ? false : turn % 2 ? false : true}
-              bg="blue.600"
+              isVisible={
+                gameOver
+                  ? false
+                  : flip
+                  ? turn % 2
+                    ? true
+                    : false
+                  : turn % 2
+                  ? false
+                  : true
+              }
+              bg={flip ? 'pink.600' : 'blue.600'}
             />
           </VStack>
         </VStack>

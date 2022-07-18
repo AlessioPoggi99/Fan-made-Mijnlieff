@@ -9,7 +9,8 @@ import {
   Button,
   VStack,
   Text,
-  Flex
+  Flex,
+  Box
 } from '@chakra-ui/react'
 
 const GameOverModal = ({ gameOver, points, resetGame }) => {
@@ -71,7 +72,7 @@ const PointFlex = ({ points }) => {
       >
         {points[0]}
       </Text>
-      <Text
+      <Box
         fontSize={{ md: '2rem', base: '1.5rem' }}
         lineHeight="100%"
         fontWeight="bold"
@@ -89,7 +90,7 @@ const PointFlex = ({ points }) => {
             <Text>wins</Text>
           </Flex>
         )}
-      </Text>
+      </Box>
       <Text
         fontSize={{ md: '2rem', base: '1.5rem' }}
         bg="pink.200"
@@ -105,4 +106,5 @@ const PointFlex = ({ points }) => {
     </Flex>
   )
 }
+
 export default GameOverModal

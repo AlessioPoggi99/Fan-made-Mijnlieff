@@ -6,7 +6,8 @@ import {
   Link,
   List,
   ListItem,
-  VStack
+  VStack,
+  useDisclosure
 } from '@chakra-ui/react'
 import {
   IoLogoInstagram,
@@ -18,8 +19,11 @@ import NextLink from 'next/link'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
+import GameModeModal from '../components/game-mode-modal'
 
 const Page = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Layout>
       <Container>
@@ -40,16 +44,17 @@ const Page = () => {
           </Box>
 
           <VStack paddingY={5} spacing={3}>
-            <NextLink href="/play">
-              <Button
-                rightIcon={<IoPlay />}
-                colorScheme="teal"
-                justify="center"
-                width="50%"
-              >
-                Play
-              </Button>
-            </NextLink>
+            {/*<NextLink href="/play?flip=false&ai=0">*/}
+            <Button
+              rightIcon={<IoPlay />}
+              colorScheme="teal"
+              justify="center"
+              width="50%"
+              onClick={onOpen}
+            >
+              Play
+            </Button>
+            {/*</NextLink>*/}
             <NextLink href="/how-to-play">
               <Button
                 rightIcon={<IoHelpCircle />}
@@ -124,6 +129,8 @@ const Page = () => {
             </ListItem>
           </List>
         </Section>
+
+        <GameModeModal isOpen={isOpen} onClose={onClose} />
       </Container>
     </Layout>
   )
