@@ -23,7 +23,7 @@ const Play = () => {
 
   const router = useRouter()
   const flip = parseInt(router.query.flip, 10) // 1 true  - 0 false
-  const ai = parseInt(router.query.ai, 10) // 0 false - 1 true (AI player1) - 2 true (AI player2)
+  //const ai = parseInt(router.query.ai, 10) // 0 false - 1 true (AI player1) - 2 true (AI player2)
 
   useEffect(() => {
     resetGame()
