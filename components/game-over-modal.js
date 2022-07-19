@@ -12,8 +12,9 @@ import {
   Flex,
   Box
 } from '@chakra-ui/react'
+import Board from './board'
 
-const GameOverModal = ({ gameOver, points, resetGame }) => {
+const GameOverModal = ({ gameOver, points, resetGame, board }) => {
   return (
     <>
       <Modal size={{ md: 'sm', base: 'xs' }} isCentered isOpen={gameOver}>
@@ -23,7 +24,16 @@ const GameOverModal = ({ gameOver, points, resetGame }) => {
 
           <ModalBody>
             <VStack spacing={7}>
-              <PointFlex points={points} />
+              <VStack spacing={0}>
+                <PointFlex points={points} />
+                <Box
+                  transform="scale(0.6)"
+                  pointerEvents="none"
+                  style={{ marginTop: '-40px', marginBottom: '-50px' }}
+                >
+                  <Board board={board} turn={null} onBoardTileClick={null} />
+                </Box>
+              </VStack>
               <VStack width="60%">
                 <Button
                   width="100%"

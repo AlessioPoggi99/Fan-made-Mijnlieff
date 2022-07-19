@@ -316,6 +316,7 @@ const Play = () => {
           gameOver={gameOver}
           points={points}
           resetGame={resetGame}
+          board={board}
         />
       </Container>
 
