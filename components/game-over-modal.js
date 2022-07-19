@@ -29,7 +29,7 @@ const GameOverModal = ({ gameOver, points, resetGame, board }) => {
                 <Box
                   transform="scale(0.6)"
                   pointerEvents="none"
-                  style={{ marginTop: '-40px', marginBottom: '-50px' }}
+                  style={{ marginTop: '-35px', marginBottom: '-50px' }}
                 >
                   <Board board={board} turn={null} onBoardTileClick={null} />
                 </Box>

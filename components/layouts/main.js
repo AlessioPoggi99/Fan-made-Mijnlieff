@@ -10,6 +10,8 @@ const Main = ({ children, router }) => {
         <meta name="description" content="Fan-made Mijnlieff" />
         <meta name="author" content="Alessio Poggi" />
         <meta name="author" content="AlessioPoggi99" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <meta property="og:site_name" content="Mijnlieff" />
         <meta name="og:title" content="Mijnlieff" />
         <meta property="og:type" content="website" />
