@@ -1,7 +1,22 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
-import { Container, VStack, Box } from '@chakra-ui/react'
+import {
+  Container,
+  VStack,
+  Box,
+  IconButton,
+  Text,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  useDisclosure
+} from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Board from '../components/board'
 import Player from '../components/player'
@@ -11,9 +26,11 @@ import {
   getPlayersPoints
 } from '../util/boarFunctions'
 import GameOverModal from '../components/game-over-modal'
+import { BiReset } from 'react-icons/bi'
+import { randomAiPlay } from '../util/ai'
 
 const Play = () => {
-  const [turn, setTurn] = useState(0)
+  const [turn, setTurn] = useState(-1)
   const [board, setBoard] = useState()
   const [player1, setPlayer1] = useState()
   const [player2, setPlayer2] = useState()
@@ -23,20 +40,34 @@ const Play = () => {
 
   const router = useRouter()
   const flip = parseInt(router.query.flip, 10) // 1 true  - 0 false
-  //const ai = parseInt(router.query.ai, 10) // 0 false - 1 true (AI player1) - 2 true (AI player2)
+  const ai = parseInt(router.query.ai, 10) // 0 false - 1 true (AI player1) - 2 true (AI player2)
+
+  const { isOpen, onOpen, onClose } = useDisclosure() // ResetGameModal
 
   useEffect(() => {
     resetGame()
   }, [])
 
+  /*
+  useEffect(() => {
+    aiPlay()
+  }, [board, player1, player2])
+  */
+
+  useEffect(() => {
+    aiPlay()
+  }, [turn])
+
   // Function that reset all states to thieir initial value to start a new game
   const resetGame = () => {
-    setTurn(0)
+    setTurn(-1)
     setPlayerSelection()
     setupBoard()
     setupPlayers()
     setGameOver(false)
     setPoints([0, 0])
+    onClose()
+    setTurn(0)
   }
 
   /*** BOARD ***/
@@ -56,8 +87,10 @@ const Play = () => {
     setBoard(boardArr)
   }
   // Function that handle board tile click (PLAY function)
-  const handleBoardTileClick = tile => {
-    if (!playerSelection) return
+  const handleBoardTileClick = (tile, aiSelection = null) => {
+    if (!playerSelection && !aiSelection) return
+
+    playerSelection = playerSelection || aiSelection
 
     // Put player tile on the board
     let temp_board = [...board]
@@ -173,6 +206,19 @@ const Play = () => {
     setPlayerSelection(null)
   }
 
+  /*** AI ***/
+  const aiPlay = () => {
+    if (ai && ai === (turn % 2) + 1) {
+      const aiPlayer = ai === 1 ? player1 : player2
+      if (board && aiPlayer) {
+        const { aiSelection, boardTile } = randomAiPlay(board, aiPlayer)
+        setTimeout(() => {
+          handleBoardTileClick(boardTile, aiSelection)
+        }, 1500)
+      }
+    }
+  }
+
   return (
     <Layout title="Play">
       <Container
@@ -261,12 +307,29 @@ const Play = () => {
           </VStack>
         </VStack>
 
+        <ResetGameModal
+          isOpen={isOpen}
+          onClose={onClose}
+          resetGame={resetGame}
+        />
         <GameOverModal
           gameOver={gameOver}
           points={points}
           resetGame={resetGame}
         />
       </Container>
+
+      <IconButton
+        colorScheme="gray"
+        variant="outline"
+        aria-label="Restart game"
+        size="md"
+        icon={<BiReset />}
+        pos="absolute"
+        top="0px"
+        right="-8px"
+        onClick={onOpen}
+      />
     </Layout>
   )
 }
@@ -286,6 +349,52 @@ const PlayerHilight = ({ isVisible, bg }) => {
       borderRadius="xl"
       animate={animate}
     />
+  )
+}
+
+const ResetGameModal = ({ isOpen, onClose, resetGame }) => {
+  return (
+    <>
+      <Modal
+        size={{ md: 'sm', base: 'xs' }}
+        isCentered
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader textAlign="center">Restart game</ModalHeader>
+          <ModalCloseButton />
+
+          <ModalBody>
+            <VStack>
+              <Text fontWeight="bold">Do you want to restart the game?</Text>
+
+              <VStack width="100%">
+                <Button
+                  width="60%"
+                  colorScheme="teal"
+                  variant="solid"
+                  onClick={resetGame}
+                >
+                  Restart
+                </Button>
+                <Button
+                  width="60%"
+                  colorScheme="teal"
+                  variant="outline"
+                  onClick={onClose}
+                >
+                  Close
+                </Button>
+              </VStack>
+            </VStack>
+          </ModalBody>
+
+          <ModalFooter></ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
 
