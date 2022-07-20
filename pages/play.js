@@ -126,9 +126,11 @@ const Play = () => {
 
     // If is game over set all board tile not playable and calculate points
     if (isGameOver(canPlay, turn, player1, player2)) {
-      setGameOver(true)
       temp_board.forEach(tile => (tile.isPlayable = false))
-      setPoints(getPlayersPoints(board))
+      setPoints(getPlayersPoints(temp_board))
+      setTimeout(() => {
+        setGameOver(true)
+      }, 750)
     }
     // If it's not game over increment turn by 1 or 2
     else {
