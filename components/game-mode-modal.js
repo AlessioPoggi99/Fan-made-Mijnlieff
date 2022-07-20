@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { ImCheckmark2 } from 'react-icons/im'
+import { ImCheckmark } from 'react-icons/im'
 
 const GameModeModal = ({ isOpen, onClose }) => {
   const router = useRouter()
@@ -130,18 +130,14 @@ const ColorSquare = ({ selected, color, color2 }) => {
           : ''
       }
       borderRadius="xl"
-      borderColor={selected ? `black` : `${color}.700`}
-      borderLeftColor={color2 ? (selected ? `black` : `${color}.700`) : ''}
-      borderTopColor={color2 ? (selected ? `black` : `${color}.700`) : ''}
-      borderRightColor={color2 ? (selected ? `black` : `${color2}.700`) : ''}
-      borderBottomColor={color2 ? (selected ? `black` : `${color2}.700`) : ''}
-      borderWidth={1}
+      borderColor="teal"
+      borderWidth={selected ? 1.5 : 1}
       justify="center"
       align="center"
-      color="black"
+      color="teal"
       shadow="md"
     >
-      {selected ? <ImCheckmark2 size={30} /> : <></>}
+      {selected ? <ImCheckmark size={30} /> : <></>}
     </Flex>
   )
 }
