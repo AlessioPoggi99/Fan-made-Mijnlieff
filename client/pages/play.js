@@ -402,4 +402,4 @@ const ResetGameModal = ({ isOpen, onClose, resetGame }) => {
 }
 
 export default Play
-export { getServerSideProps } from '../components/chakra'
+// export { getServerSideProps } from '../components/chakra'

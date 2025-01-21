@@ -136,4 +136,4 @@ const HowToPlay = () => {
 }
 
 export default HowToPlay
-export { getServerSideProps } from '../components/chakra'
+// export { getServerSideProps } from '../components/chakra'
