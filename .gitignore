@@ -45,3 +45,4 @@ dist
 .env
 
 .DS_Store
+out
