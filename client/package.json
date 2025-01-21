@@ -1,11 +1,15 @@
 {
-  "name": "portfolio",
+  "homepage": "https://www.mijnllieff.alessiopoggi.org",
+  "private": true,
+  "name": "mijnlieff",
   "version": "1.0.0",
-  "description": "Alessio's website",
+  "description": "Mijnlieff fan-made adaptation",
   "main": "index.js",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
+    "export": "next export",
+    "deploy": "npm run build && cp CNAME ./out/ && gh-pages -d out",
     "prettier": "prettier -write .",
     "lint": "next lint"
   },
@@ -27,6 +31,7 @@
   "devDependencies": {
     "eslint": "^8.19.0",
     "eslint-config-next": "^12.2.2",
+    "gh-pages": "^6.3.0",
     "prettier": "^2.7.1"
   }
 }
