@@ -9,7 +9,7 @@
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "export": "next export",
-    "deploy": "npm run build && cp CNAME ./out/ && gh-pages -d out",
+    "deploy": "npm run build && npm run export && cp CNAME ./out/ && gh-pages -d out",
     "prettier": "prettier -write .",
     "lint": "next lint"
   },
