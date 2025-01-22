@@ -81,6 +81,6 @@ If you are intrested in Socket.IO backend used in **Vue Myjnlieff** version you 
 
 - <a href="https://github.com/AlessioPoggi99" target="_blank">My Github</a>
 
-- <span><a href="https://mijnlieff.vercel.app" target="_blank">Mijnlieff</a> and <a href="https://github.com/AlessioPoggi99/Fan-made-Mijnlieff" target="_blank">Mijnlieff github repository</a></span>
+- <span><a href="https://www.mijnlieff.alessiopoggi.org" target="_blank">Mijnlieff</a> and <a href="https://github.com/AlessioPoggi99/Fan-made-Mijnlieff" target="_blank">Mijnlieff github repository</a></span>
 
 - <span><a href="https://mijnlieff.netlify.app" target="_blank">Vue Mijnlieff</a> and <a href="https://github.com/AlessioPoggi99/vue-mijnlieff" target="_blank">Vue Mijnlieff github repository</a></span>
