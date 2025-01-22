@@ -1,0 +1,16 @@
+{
+  "short_name": "Mijnlieff",
+  "name": "Mijnlieff",
+  "description": "Indovina la parola nascosta in 6 tentativi. Gioca con piu' di 3000 parole italiane.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
