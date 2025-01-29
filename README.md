@@ -1,8 +1,8 @@
 <div align='center'>
-  <h1 class='my-8'>Mijnlieff</h1>
+  <h1 class="main-title">Mijnlieff</h1>
 </div>
 
-Unofficial fan-made adaptation of the bagstract game Mijnlieff, designed by Andy Hopwood
+An unofficial, fan-made adaptation of Mijnlieff, designed by Andy Hopwood. This reproduction captures the original's clever mechanics and minimalist design, offering a fresh way to engage with its strategic depth. Crafted with passion and respect for the original, this game challenges you to think critically and make smart moves every time!
 
 The game is played on a 4 x 4 square grid. Each Player has eight pieces with two of four different symbols. Each piece when played determines where your opponent can play their next piece. For example you can force your opponent to play in a straight line (either othogonally or diagonally) from the piece just played, or to play next to or away from the piece just played. The aim is to form lines of 3 pieces of your color to get a point or lines of 4 that worth you two points.
 
@@ -38,13 +38,13 @@ $PROJECT_ROOT
 
 You can try this unofficial app of Mijnlieff game on the website:
 
-- <a href="https://mijnlieff.vercel.app" target="_blank">Mijnlieff</a>
+- <a href="https://www.mijnlieff.alessiopoggi.org" target="_blank">Mijnlieff</a>
 
 Otherwise you can clone the <a href="https://github.com/AlessioPoggi99/Fan-made-Mijnlieff" target="_blank">Github repository</a> and run it on your pc
 
 ```sh
-npm i
-npm run dev
+npm install # install dependencies
+npm run dev # run a local server
 ```
 
 ## 📋 To-Do
@@ -53,28 +53,28 @@ Actually only local games and against AI games are available. Socket connection 
 If you want to play remotly you can try <a href="https://mijnlieff.netlify.app" target="_blank">Vue Mijnlieff</a>, it is the same game
 but in this version, written with VueJs, I've implement Socket.IO connection to play remotly with your friends.
 
-If you are intrested in Socket.IO backend used in **Vue Myjnlieff** version you can check it out the <a href="https://github.com/AlessioPoggi99/vue-mijnlieff" target="_blank">Github repository</a>.
+If you are intrested in Socket.IO backend used in **Vue Mijnlieff** version you can check it out the <a href="https://github.com/AlessioPoggi99/vue-mijnlieff" target="_blank">Github repository</a>.
 
 ## 📷 Screenshots
 
-#### Mobile
+### Mobile
 
-<p align="center" class='grid grid-cols-4 gap-x-2'>
-  <img width="24%" class="rounded-md shadow-black shadow-lg" alt="mobile-home1" src="/screenshots/mobile1.png"/>
-  <img width="24%" class="rounded-md shadow-black shadow-lg" alt="mobile-rules" src="/screenshots/mobile2.png"/>
-  <img width="24%" class="rounded-md shadow-black shadow-lg" alt="mobile-home2" src="/screenshots/mobile3.png"/>
-  <img width="24%" class="rounded-md shadow-black shadow-lg" alt="mobile-game" src="/screenshots/mobile4.png"/>
+<p align="center" class="img-grid">
+  <img width="24%" height="auto" alt="mobile-home1" class="rounded-md" src="https://www.alessiopoggi.org/mijnlieff/mobile1.png"/>
+  <img width="24%" height="auto" alt="mobile-rules" class="rounded-md" src="https://www.alessiopoggi.org/mijnlieff/mobile2.png"/>
+  <img width="24%" height="auto" alt="mobile-home2" class="rounded-md" src="https://www.alessiopoggi.org/mijnlieff/mobile3.png"/>
+  <img width="24%" height="auto" alt="mobile-game" class="rounded-md" src="https://www.alessiopoggi.org/mijnlieff/mobile4.png"/>
 </p>
 
-#### Desktop
+### Desktop
 
-<p align="center" class='grid grid-cols-2 gap-x-2'>
-  <img width="49%" alt="desktop-home1" src="/screenshots/desktop1.png"/>
-  <img width="49%" alt="desktop-home2" src="/screenshots/desktop2.png"/>
-  <img width="49%" alt="desktop-game1" src="/screenshots/desktop3.png"/>
-  <img width="49%" alt="desktop-rules" src="/screenshots/desktop4.png"/>
-  <img width="49%" alt="desktop-gameover" src="/screenshots/desktop5.png"/>
-  <img width="49%" alt="desktop-game2" src="/screenshots/desktop6.png"/>
+<p align="center" class="img-grid-2">
+  <img width="49%" height="auto" alt="desktop-home1" class="no-shadow" src="https://www.alessiopoggi.org/mijnlieff/desktop1.png"/>
+  <img width="49%" height="auto" alt="desktop-home2" class="no-shadow" src="https://www.alessiopoggi.org/mijnlieff/desktop2.png"/>
+  <img width="49%" height="auto" alt="desktop-game1" class="no-shadow" src="https://www.alessiopoggi.org/mijnlieff/desktop3.png"/>
+  <img width="49%" height="auto" alt="desktop-rules" class="no-shadow" src="https://www.alessiopoggi.org/mijnlieff/desktop4.png"/>
+  <img width="49%" height="auto" alt="desktop-gameover" class="no-shadow" src="https://www.alessiopoggi.org/mijnlieff/desktop5.png"/>
+  <img width="49%" height="auto" alt="desktop-game2" class="no-shadow" src="https://www.alessiopoggi.org/mijnlieff/desktop6.png"/>
 </p>
 
 ## 🔗 Links
